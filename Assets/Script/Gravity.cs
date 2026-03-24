@@ -16,7 +16,7 @@ public class Gravity : MonoBehaviour
 
         if (otherObjectslist == null)
         {
-            otherObjectslist = new List<Gravity> ();
+            otherObjectslist = new List<Gravity>();
         }
 
         otherObjectslist.Add(this);
@@ -28,26 +28,28 @@ public class Gravity : MonoBehaviour
         {
             if (obj != this)
             {
-                Attract(obj);
+                Attrct(obj);
             }
-        
+
         }
 
     }
 
-    private void Attrct (Gravity other)
+    private void Attrct(Gravity other)
     {
-       Rigidbody otherRB = other.rb;
+        Rigidbody otherRB = other.rb;
 
         Vector3 direction = rb.position - otherRB.position;
 
         float distance = direction.magnitude;
 
-        if (distance < 0f) { return;
+        if (distance < 0f)
+        {
+            return;
 
-    }
+        }
 
-       float forceMagnitude = G * (rb.mass * otherRB.mass) / Mathf.Pow(distance, 2);
+        float forceMagnitude = G * (rb.mass * otherRB.mass) / Mathf.Pow(distance, 2);
 
         Vector3 gravityForce = forceMagnitude * direction.normalized;
 
@@ -56,13 +58,14 @@ public class Gravity : MonoBehaviour
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
-    {
-        
-    }
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
